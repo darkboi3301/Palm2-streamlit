@@ -46,9 +46,8 @@ st.write('This app uses the Palm 2 model to predict whether an email is spam or 
 
 st.subheader('Please enter your mail details below')
 
-mail_sender=st.text_input('Enter the sender of the mail')
-mail_subject=st.text_input('Enter the subject of the mail')
-mail=st.text_area('Paste your email here')
+
+input =st.text_area('Paste your email here')
 
 with st.expander('Advanced Options'):
     temperature = st.slider('Select temprature', 0.0, 1.0, 0.2)
@@ -70,15 +69,9 @@ model = TextGenerationModel.from_pretrained(model_v)
 
 scan_button = st.button('Scan')
 if scan_button:
-    if mail_sender == '':
-        mail_sender = 'not provided'
-    if mail_subject == '':
-        mail_subject = 'not provided'
     if mail != '':
-        request_string = "provided the body of the mail , what are the chances of this mail being a spam  and if so why ? \n\n\n" + "sender mail = "+ mail_sender + "\n\n mail subject = " + mail_subject + "\n\n mail = "  + mail
-        st.write('Scanning mail...')
         with st.spinner('Getting response from Palm 2...'):
             response = model.predict(
-            request_string,
+            input,
             **parameters)
         st.write(response.text)
