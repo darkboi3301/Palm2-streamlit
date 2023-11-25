@@ -46,10 +46,10 @@ model = TextGenerationModel.from_pretrained(model_v)
 scan_button = st.button('Scan')
 if scan_button:
     prediction_text = pre_input_text + "\n" + input_text
-    if prediction_text != ''
+    if prediction_text != '':
         with st.spinner('Getting response from Palm 2...'):
             response = model.predict(
-            input,
+            prediction_text,
             **parameters)
         st.write(response.text)
     else:
