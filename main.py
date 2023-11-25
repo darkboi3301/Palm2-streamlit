@@ -21,16 +21,16 @@ st.toast("All Requred Libraries Imported",
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './privcreds.json'
 vertexai.init(project="orbital-nova-365616", location="us-central1")
 st.toast("Connected To Google Palm 2",icon='🎉')
-st.title('just a simple way')
-st.subheader('Please enter your mail details below')
+st.title('Palm2-streamlit')
+st.subheader('pls dont abuse my api key i hav ennough credits for only like 15k requests')
 pre_input_text =st.text_area('Tuning prompt here')
 input_text =st.text_area('Prompt here')
+
 with st.expander('Advanced Options'):
     temperature = st.slider('Select temprature', 0.0, 1.0, 0.2)
     output_tokens = st.slider('Select max output tokens', 0, 1000, 200)
     model_v = st.selectbox('Select Palm model', ['text-bison', 'text-bison-32k', 'text-bison@001'])
     
-
 
 
 parameters = {
