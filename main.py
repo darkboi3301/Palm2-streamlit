@@ -1,7 +1,5 @@
 #create a streamlit app that takes email content and returns a prediction of whether the email is spam or not
 import streamlit as st
-import pandas as pd
-import numpy as np
 import vertexai
 from vertexai.language_models import TextGenerationModel
 import os
